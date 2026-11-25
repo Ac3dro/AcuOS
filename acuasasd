@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AcuOS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #08090d;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 64px;
+      letter-spacing: -3px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #9b9da7;
+      margin-bottom: 35px;
+    }
+
+    .search {
+      display: flex;
+      gap: 10px;
+    }
+
+    input {
+      flex: 1;
+      padding: 16px 18px;
+      border: 1px solid #292c38;
+      border-radius: 14px;
+      background: #11131a;
+      color: white;
+      outline: none;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 16px 24px;
+      border: 0;
+      border-radius: 14px;
+      background: #5865f2;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      opacity: .9;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>AcuOS</h1>
+    <p>Your web, your way.</p>
+
+    <div class="search">
+      <input id="url" placeholder="Enter a URL...">
+      <button onclick="go()">Launch</button>
+    </div>
+  </div>
+
+  <script>
+    function go() {
+      let url = document.getElementById("url").value.trim();
+
+      if (!url) return;
+
+      if (!url.startsWith("http://") && !url.startsWith("https://")) {
+        url = "https://" + url;
+      }
+
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
